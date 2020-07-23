@@ -9,6 +9,7 @@
 #include <iostream>
 #include <list>
 #include <queue>
+#include <vector>
 
 struct Node
 {
@@ -83,9 +84,18 @@ void TEST_level_order()
     
     std::list<Node*> level_nodes = level_order(tree);
     
+    std::vector<Node*> all_nodes;
+    
     for(const auto& n : level_nodes)
     {
         std::cout << n->v << std::endl;
+        all_nodes.push_back(n);
+    }
+    
+    for(const auto& n: all_nodes)
+    {
+        Node* nn = n;
+        delete nn;
     }
 }
 
